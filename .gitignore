@@ -5,10 +5,4 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 data/ab.db
-.venv/
-venv/
-__pycache__/
-.ipynb_checkpoints/
-.env
-data/ab.db
-data/marketing_AB.csv
+
