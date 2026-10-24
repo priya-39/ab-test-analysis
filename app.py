@@ -67,7 +67,9 @@ except Exception as exc:
 
 # Sidebar filters
 st.sidebar.header("Filters")
-day_options = ["All"] + sorted(df["most_ads_day"].dropna().unique().tolist())
+day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+available_days = set(df["most_ads_day"].dropna().unique())
+day_options = ["All"] + [d for d in day_order if d in available_days]
 selected_day = st.sidebar.selectbox("Day of week", day_options, index=0)
 
 hour_min = int(df["most_ads_hour"].min())
