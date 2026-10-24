@@ -155,9 +155,14 @@ ax.set_ylabel("Conversion rate (%)")
 ax.set_title("Conversion rate by test group")
 ax.grid(axis="y", linestyle="--", alpha=0.35)
 ax.set_axisbelow(True)
-for bar, rate in zip(bars, rates):
-    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(),
-            f"{rate:.2%}", ha="center", va="bottom")
+for bar, rate, up in zip(bars, rates, upper):
+    ax.text(
+        bar.get_x() + bar.get_width() / 2,
+        up * 100,
+        f"{rate:.2%}",
+        ha="center",
+        va="bottom"
+    )
 fig.tight_layout()
 st.pyplot(fig)
 plt.close(fig)
