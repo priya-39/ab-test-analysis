@@ -20,7 +20,10 @@ SELECT
         AS conversion_rate_pct
 FROM ads
 GROUP BY most_ads_day, test_group
-ORDER BY most_ads_day, test_group;
+ORDER BY CASE most_ads_day
+    WHEN 'Monday' THEN 1 WHEN 'Tuesday' THEN 2 WHEN 'Wednesday' THEN 3
+    WHEN 'Thursday' THEN 4 WHEN 'Friday' THEN 5 WHEN 'Saturday' THEN 6
+    ELSE 7 END, test_group;
 
 
 -- Query 3: CASE WHEN exposure buckets
